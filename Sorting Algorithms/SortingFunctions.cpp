@@ -82,7 +82,7 @@ bool QuickSortStep(std::vector<int>& list, int low, int high) // O(n log n)
        quickSortStack.push({ low, pi - 1 }); 
 
      */
-    // NOT DONE JUST A theory that I will explore when I feel like it
+    // NOT DONE JUST A theory to xplore when I feel like it,  Good Luck future me!!!
        
     if (low < high)
     {
