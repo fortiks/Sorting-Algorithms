@@ -43,7 +43,7 @@ bool SetupWindow(HINSTANCE instance, UINT width, UINT height, int nCmdShow, HWND
     RECT rt = { 0, 0, width, height };
     AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, FALSE);
 
-    window = CreateWindowEx(0, CLASS_NAME, L"3D Metaballs with PixelShader", WS_OVERLAPPEDWINDOW,
+    window = CreateWindowEx(0, CLASS_NAME, L"Sorting Algorithms", WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, rt.right - rt.left, rt.bottom - rt.top, nullptr, nullptr, instance, nullptr);
 
     if (window == nullptr)
