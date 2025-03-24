@@ -31,7 +31,7 @@ void EndImGuiFrame()
 
 int numberInList = 50;
 void ImGuiModifying(bool& start, std::vector<int>& numberList, 	// sorting variables 
-	int& i,int& j, bool& swapped, int& selectedOption)
+	int& i,int& j, bool& swapped, int& selectedOption, std::deque<QuickSortState>& quickSortStack, int& n)
 {
 	bool begun = ImGui::Begin("Modifiers");
 	
@@ -43,11 +43,16 @@ void ImGuiModifying(bool& start, std::vector<int>& numberList, 	// sorting varia
 
 		ImGui::InputInt("Number in List", &numberInList);
 		
-		const char* options[] = { "BubbleSort", "InsertionSort"};
+		const char* options[] = { "BubbleSort", "InsertionSort", "ShellSort", "QuickSort"};
 		static int selectedSort = 0;
 		
 		// Show the dropdown when the button is clicked
 		ImGui::Combo("Options", &selectedSort, options, IM_ARRAYSIZE(options));
+
+		if (!start)
+		{
+			selectedOption = selectedSort;
+		}
 
 		if (ImGui::Button("Reset"))
 		{
@@ -62,6 +67,9 @@ void ImGuiModifying(bool& start, std::vector<int>& numberList, 	// sorting varia
 				
 				numberList.push_back(rand() % 100 + 1);
 			}
+			quickSortStack.clear();
+			quickSortStack.push_back({ 0, numberInList-1});
+			n = numberInList;
 		}
 	}
 

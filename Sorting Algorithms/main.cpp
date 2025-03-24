@@ -101,6 +101,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	// sorting variables 
 	int i = 0, j = 0;
 	bool swapped = false;
+	int sizeOfList = numberList.size();
+	std::deque<QuickSortState> quickSortStack;
+	int high = numberList.size()-1;
+	quickSortStack.push_back({0, high});
 	
 	int sortingAlgorithmInUSe = 0;
 
@@ -118,7 +122,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			DispatchMessage(&msg);
 		}
 		StartImGuiFrame();
-		ImGuiModifying(start, numberList, i, j, swapped, sortingAlgorithmInUSe);
+		ImGuiModifying(start, numberList, i, j, swapped, sortingAlgorithmInUSe, quickSortStack, sizeOfList);
 
 		
 
@@ -150,9 +154,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			{
 				start = insertionSortStep(numberList, i);
 			}
-			
 
-			
+			else if (sortingAlgorithmInUSe == 2)
+			{
+				start = shellSortStep(numberList, sizeOfList);
+			}
+
+			else if (sortingAlgorithmInUSe == 3)
+			{
+				start = QuickSortStep(numberList, quickSortStack); 
+			}
 			
 		}
 	

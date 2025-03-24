@@ -7,7 +7,7 @@
 #include "imgui.h"
 #include "backends/imgui_impl_dx11.h"
 #include "backends/imgui_impl_win32.h"
-
+#include "SortingFunctions.h"
 
 void SetupImGui(HWND windowHandle, ID3D11Device* device, ID3D11DeviceContext* context);
 
@@ -15,6 +15,6 @@ void StartImGuiFrame();
 
 
 void ImGuiModifying(bool& start, std::vector<int>& numberList, 
-	int& i, int& j, bool& swapped, int& selectedOption);
+	int& i, int& j, bool& swapped, int& selectedOption, std::deque<QuickSortState>& quickSortStack, int& n);
 
 void EndImGuiFrame();
