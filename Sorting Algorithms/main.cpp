@@ -141,8 +141,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 		float gapSize = 0.01f;  // Adjust this for the desired gap size
 		float rectWidth = (screenWidth) / numberList.size(); // 0.2 for the sides
-
-		// 
+ 
 		if (start == true)
 		{
 			if (sortingAlgorithmInUSe ==  0)
@@ -163,6 +162,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			else if (sortingAlgorithmInUSe == 3)
 			{
 				start = QuickSortStep(numberList, quickSortStack); 
+			}
+
+			else if (sortingAlgorithmInUSe == 4)
+			{
+				start = miracleSort(numberList, i, j, swapped, sizeOfList, quickSortStack);
+			}
+
+			else if (sortingAlgorithmInUSe == 5)
+			{
+				start = bogoSortStep(numberList);
 			}
 			
 		}

@@ -136,4 +136,52 @@ bool Mergsort(std::vector<int>& list, std::deque<QuickSortState>& mergSortStack)
        
 }
 
+bool miracleSort(std::vector<int>& list, int& i, int& j, bool& swapped, int& n, std::deque<QuickSortState>& quickSortStack)
+{
+    int miracle = rand(); // RAND_MAX
+    bool letTheBlessingBegin = true; // Continue sorting
+    if(miracle == 0)
+        letTheBlessingBegin = bubbleSortStep(list, i, j, swapped);
+    else if (miracle == 1)
+        letTheBlessingBegin = insertionSortStep(list, i);
+    else if (miracle == 2)
+        letTheBlessingBegin = shellSortStep(list, n);
+    else if (miracle == 3)
+        letTheBlessingBegin = QuickSortStep(list, quickSortStack);
+
+    return letTheBlessingBegin;
+
+}
+
+bool isSorted(std::vector<int> list, int n)
+{
+    while (--n > 0) // check if array is sorted 
+    {
+        if (list[n] < list[n - 1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool bogoSortStep(std::vector<int>& list)
+{
+    int n = list.size();
+
+    if (isSorted(list, n))
+    {
+        return false; // Sorting finished
+    }
+    
+    for (int i = 0; i < n; i++) // shuffle 
+    {
+        std::swap(list[i], list[rand() % n]);
+    }
+
+    return true; //  Continue sorting
+}
+
+
+
 

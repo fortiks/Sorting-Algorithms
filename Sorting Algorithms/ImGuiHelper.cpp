@@ -43,7 +43,7 @@ void ImGuiModifying(bool& start, std::vector<int>& numberList, 	// sorting varia
 
 		ImGui::InputInt("Number in List", &numberInList);
 		
-		const char* options[] = { "BubbleSort", "InsertionSort", "ShellSort", "QuickSort"};
+		const char* options[] = { "BubbleSort", "InsertionSort", "ShellSort", "QuickSort", "MiracleSort", "BogoSort"};
 		static int selectedSort = 0;
 		
 		// Show the dropdown when the button is clicked
